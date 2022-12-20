@@ -10,6 +10,8 @@ GPU Cooling interval function is also tested.
 
 **INSTALL**
 
+To install this fork,
+
 In GitHub
 
 ![sample03](https://raw.githubusercontent.com/alansmithee-johndoe/stable-diffusion-webui-nsfw-censor-rickrolling/master/sample03.png)
