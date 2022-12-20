@@ -1,6 +1,6 @@
 A NSFW checker for [Web UI](https://github.com/AUTOMATIC1111/stable-diffusion-webui). Replaces non-worksafe images with black squares. Install it from UI.
 
-I want to add rickrolling function, so this fork is for testing Rickrolling.
+I want to use rickrolling function, so this fork is for testing Rickrolling.
 
 ![sample01](https://raw.githubusercontent.com/alansmithee-johndoe/stable-diffusion-webui-nsfw-censor-rickrolling/master/sample01.png)
 
