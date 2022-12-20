@@ -1,4 +1,13 @@
+# coding: utf-8
+
 import torch
+
+import numpy as np
+from tqdm import tqdm
+from time import sleep
+from os import listdir
+from random import choice
+
 from diffusers.pipelines.stable_diffusion.safety_checker import StableDiffusionSafetyChecker
 from transformers import AutoFeatureExtractor
 from PIL import Image
@@ -8,6 +17,14 @@ from modules import scripts, shared
 safety_model_id = "CompVis/stable-diffusion-safety-checker"
 safety_feature_extractor = None
 safety_checker = None
+
+# for Rickroll
+safety_images_dir = "extensions/stable-diffusion-webui-nsfw-censor/warning-images/"
+safety_images = listdir(safety_images_dir)
+rickrolling_message = "🤗HAHAHA🤗" + "\n\n" + "Rickrolled? Calm down, brother. Listen to his music!" + "\n\n"
+
+# GPU cooling interval
+gpu_cooling_interval = 500
 
 
 def numpy_to_pil(images):
@@ -32,7 +49,6 @@ def check_safety(x_image):
 
     safety_checker_input = safety_feature_extractor(numpy_to_pil(x_image), return_tensors="pt")
     x_checked_image, has_nsfw_concept = safety_checker(images=x_image, clip_input=safety_checker_input.pixel_values)
-
     return x_checked_image, has_nsfw_concept
 
 
@@ -41,6 +57,29 @@ def censor_batch(x):
     x_checked_image, has_nsfw_concept = check_safety(x_samples_ddim_numpy)
     x = torch.from_numpy(x_checked_image).permute(0, 3, 1, 2)
 
+    # GPU cooling
+    print("\n\n" + "GPU COOLING TIME STARTED")
+    for i in tqdm (range (gpu_cooling_interval), desc="Waiting for cooling..."):
+        sleep(0.001)
+    print("GPU COOLING TIME ENDED" + "\n\n")
+
+    # Rickrolling
+    counter = 0
+    for unsafe_value in has_nsfw_concept:
+        try:
+            if unsafe_value == True:
+                print(rickrolling_message)
+                hwc = x.shape
+                y = Image.open(safety_images_dir + choice(safety_images)).convert("RGB").resize((hwc[3], hwc[2]))
+                y = (np.array(y)/255.0).astype("float32")
+                y = torch.from_numpy(y)
+                y = torch.unsqueeze(y, 0).permute(0, 3, 1, 2)
+                assert y.shape == x.shape
+                x[counter] = y
+            counter += 1
+        except Exception:
+            print("Potential NSFW content was detected in one or more images.")
+            counter += 1
     return x
 
 
