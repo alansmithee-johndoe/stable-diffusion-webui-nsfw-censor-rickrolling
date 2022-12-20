@@ -8,6 +8,16 @@ GPU Cooling interval function is also tested.
 
 ![sample02](https://raw.githubusercontent.com/alansmithee-johndoe/stable-diffusion-webui-nsfw-censor-rickrolling/master/sample02.png)
 
+**INSTALL**
+
+In github
+
+![sample03](https://raw.githubusercontent.com/alansmithee-johndoe/stable-diffusion-webui-nsfw-censor-rickrolling/master/sample03.png)
+
+In Web UI
+
+![sample04](https://raw.githubusercontent.com/alansmithee-johndoe/stable-diffusion-webui-nsfw-censor-rickrolling/master/sample04.png)
+
 **source of warning-images**
 
 rick.jpeg
