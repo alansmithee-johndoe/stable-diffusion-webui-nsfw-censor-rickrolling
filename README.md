@@ -18,30 +18,6 @@ In Web UI's Extensions Tab
 
 ![sample04](https://raw.githubusercontent.com/alansmithee-johndoe/stable-diffusion-webui-nsfw-censor-rickrolling/master/sample04.png)
 
-**source of warning-images**
-
-rick.jpeg
-https://github.com/CompVis/stable-diffusion/blob/main/assets/rick.jpeg
-
-neko.png
-http://scp-jp.wikidot.com/local--files/scp-040-jp/neko.png
-
-**references**
-
-rickrolling
-https://github.com/CompVis/stable-diffusion/blob/main/scripts/txt2img.py
-
-```
-def load_replacement(x):
-    try:
-        hwc = x.shape
-        y = Image.open("assets/rick.jpeg").convert("RGB").resize((hwc[1], hwc[0]))
-        y = (np.array(y)/255.0).astype(x.dtype)
-        assert y.shape == x.shape
-        return y
-    except Exception:
-        return x
-```
 
 **pass-through**
 
@@ -71,4 +47,29 @@ to
 
 ```
 gpu_cooling_interval = 250
+```
+
+**source of warning-images**
+
+rick.jpeg
+https://github.com/CompVis/stable-diffusion/blob/main/assets/rick.jpeg
+
+neko.png
+http://scp-jp.wikidot.com/local--files/scp-040-jp/neko.png
+
+**references**
+
+rickrolling
+https://github.com/CompVis/stable-diffusion/blob/main/scripts/txt2img.py
+
+```
+def load_replacement(x):
+    try:
+        hwc = x.shape
+        y = Image.open("assets/rick.jpeg").convert("RGB").resize((hwc[1], hwc[0]))
+        y = (np.array(y)/255.0).astype(x.dtype)
+        assert y.shape == x.shape
+        return y
+    except Exception:
+        return x
 ```
