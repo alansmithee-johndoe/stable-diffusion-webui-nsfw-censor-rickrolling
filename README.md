@@ -2,7 +2,11 @@ A NSFW checker for [Web UI](https://github.com/AUTOMATIC1111/stable-diffusion-we
 
 This fork is for testing Rickrolling.
 
+![sample01](https://raw.githubusercontent.com/alansmithee-johndoe/stable-diffusion-webui-nsfw-censor-rickrolling/master/sample01.png)
+
 GPU Cooling interval function is also tested.
+
+![sample02](https://raw.githubusercontent.com/alansmithee-johndoe/stable-diffusion-webui-nsfw-censor-rickrolling/master/sample02.png)
 
 **source of warning-images**
 
