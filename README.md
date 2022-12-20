@@ -10,11 +10,11 @@ GPU Cooling interval function is also tested.
 
 **INSTALL**
 
-In github
+In GitHub
 
 ![sample03](https://raw.githubusercontent.com/alansmithee-johndoe/stable-diffusion-webui-nsfw-censor-rickrolling/master/sample03.png)
 
-In Web UI
+In Web UI's Extensions Tab
 
 ![sample04](https://raw.githubusercontent.com/alansmithee-johndoe/stable-diffusion-webui-nsfw-censor-rickrolling/master/sample04.png)
 
