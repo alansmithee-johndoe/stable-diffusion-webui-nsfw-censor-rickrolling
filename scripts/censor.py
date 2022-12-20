@@ -19,7 +19,7 @@ safety_feature_extractor = None
 safety_checker = None
 
 # for Rickroll
-safety_images_dir = "extensions/stable-diffusion-webui-nsfw-censor/warning-images/"
+safety_images_dir = "extensions/stable-diffusion-webui-nsfw-censor-rickrolling/warning-images/"
 safety_images = listdir(safety_images_dir)
 rickrolling_message = "🤗HAHAHA🤗" + "\n\n" + "Rickrolled? Calm down, brother. Listen to his music!" + "\n\n"
 
